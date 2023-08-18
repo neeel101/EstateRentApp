@@ -129,6 +129,45 @@ const data = [
       area: "9 x 8 ",
     },
   },
+  {
+    price: 3000,
+    name: "tuff Building",
+    address: "79 yellowWood St, California",
+    imgId : 11,
+    type : "Flat",
+    popular: false,
+    info: {
+      beds: 2,
+      bathrooms: 1,
+      area: "9 x 8 ",
+    },
+  },
+  {
+    price: 3000,
+    name: "Andhra Apartments",
+    address: "6t valley, Delhi",
+    imgId : 12,
+    type : "Flat",
+    popular: false,
+    info: {
+      beds: 2,
+      bathrooms: 1,
+      area: "9 x 8 ",
+    },
+  },
+  {
+    price: 3000,
+    name: "Radha Krishna Apartments",
+    address: "st cruise Road, Delhi",
+    imgId : 13,
+    type : "Flat",
+    popular: false,
+    info: {
+      beds: 2,
+      bathrooms: 1,
+      area: "9 x 8 ",
+    },
+  },
 
 ];
 export default data;

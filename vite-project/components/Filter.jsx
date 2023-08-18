@@ -1,35 +1,27 @@
 import { useState } from "react";
 
-const Filter = ({ name, data , filterFun}) => {
+const Filter = ({ name, data, filterFun }) => {
   const [filter1Value, setFilter1Value] = useState("");
   const [filter2Value, setFilter2Value] = useState("");
   const [filter3Value, setFilter3Value] = useState("");
-//   const [filter4Value, setFilter4Value] = useState("");
 
   const handleFilter1Change = (e) => {
     const val = e.target.value;
     setFilter1Value(val);
-    filterFun(val)
-
-  }
+    filterFun(val);
+  };
   const handleFilter2Change = (e) => {
     const val = e.target.value;
     setFilter2Value(val);
-    filterFun(val)
-    
-  }
+    filterFun(val);
+  };
   const handleFilter3Change = (e) => {
     const val = e.target.value;
     setFilter3Value(val);
-    filterFun(val)
-  }
-//   const handleFilter4Change = (e) => {
-//     const val = e.target.value;
-//     setFilter4Value(val);
-//   }
+    filterFun(val);
+  };
 
-  return ( 
-    
+  return (
     <div className="">
       <label htmlFor="location" className="block">
         {name}
@@ -41,8 +33,7 @@ const Filter = ({ name, data , filterFun}) => {
             ? filter1Value
             : name === "Filter 2"
             ? filter2Value
-            :  filter3Value
-            // : filter4Value
+            : filter3Value
         }
         onChange={
           name === "Filter 1"
@@ -50,7 +41,6 @@ const Filter = ({ name, data , filterFun}) => {
             : name === "Filter 2"
             ? handleFilter2Change
             : handleFilter3Change
-            
         }
       >
         <option key={data.length}>Choose {name}</option>

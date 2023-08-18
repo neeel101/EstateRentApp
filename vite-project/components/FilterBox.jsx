@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Filter from "./Filter";
 const FilterBox = ({ list, fun }) => {
- 
   const data1 = ["New York", "California", "Delhi", "Mumbai"];
   const data2 = [
     "$1000 - $1500",
@@ -28,6 +27,7 @@ const FilterBox = ({ list, fun }) => {
   const handleFilter4Value = (e) => {
     setFilter4Value(e.target.value);
   };
+  //for understanding purpose
   // const handleSearch = () => {
   //   const newList = list.filter((element) => {
   //     const arr = filter2Value.split(" ");
@@ -74,32 +74,31 @@ const FilterBox = ({ list, fun }) => {
   //   fun(newList);
   // };
   const handleSearch = () => {
-    const newList = list.filter(element => {
+    const newList = list.filter((element) => {
       const arr = filter2Value.split(" ");
       const price1 = parsePrice(arr[0]);
       const price2 = parsePrice(arr[2]);
       const location = element.address.split(",")[1].trim();
       const isValidLocation = location === filter1Value || !location;
-  
+
       if (isValidLocation && isPriceInRange(element.price, price1, price2)) {
         return !filter3Value || element.type === filter3Value;
       }
-  
+
       return false;
     });
-  
-    console.log("newList", newList);
+
     fun(newList);
   };
-  
-  const parsePrice = priceString => {
+
+  const parsePrice = (priceString) => {
     return parseInt(priceString?.substring(1)) || null;
   };
-  
+
   const isPriceInRange = (price, min, max) => {
     return (min === null || price >= min) && (max === null || price <= max);
   };
-  
+
   return (
     <div className="filterBox">
       <Filter name="location" data={data1} filterFun={filterFun1} />

@@ -4,19 +4,30 @@ import Card from "./Card";
 import { useState } from "react";
 
 const Body = () => {
-  let cnt = 0;
   const [dataList, setDataList] = useState(mockData);
   const handleDatList = (arr) => {
     setDataList(arr);
-  }
+  };
   console.log(dataList);
   return (
     <div className="body">
       <div className="body-child">
-      <h1>Search properties to rent</h1>
-      <input type="text" name="" placeholder="Search with search bar" id="" />
+        <h1>Search properties to rent</h1>
+        <input
+          type="text"
+          name=""
+          placeholder="Search with name"
+          id=""
+          onInput={(e) => {
+            const value = e.target.value;
+            const tempList = mockData?.filter(
+              (element) => value.toLowerCase() === element?.name.toLowerCase()
+            );
+            value === "" ? setDataList(mockData) : setDataList(tempList);
+          }}
+        />
       </div>
-      <FilterBox list = {mockData} fun = {handleDatList}/>
+      <FilterBox list={mockData} fun={handleDatList} />
       <div className="card-container">
         {dataList.map((element, index) => (
           <Card key={index} data={element} />
