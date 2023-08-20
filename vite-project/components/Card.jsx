@@ -1,5 +1,8 @@
 const Card = (props) => {
+<<<<<<< HEAD
   if (props?.data === undefined) return;
+=======
+>>>>>>> 7e8f7f3 (updated filter logic)
   const { name, price, address, imgId, popular } = props?.data;
 
   const { beds, bathrooms, area } = props?.data?.info;

@@ -21,6 +21,7 @@ const FilterBox = ({ list, fun }) => {
   const filterFun2 = (elementVal) => {
     setFilter2Value(elementVal);
   };
+<<<<<<< HEAD
   const filterFun3 = (elementVal) => {
     setFilter3Value(elementVal);
   };
@@ -99,6 +100,56 @@ const FilterBox = ({ list, fun }) => {
     return (min === null || price >= min) && (max === null || price <= max);
   };
 
+=======
+  const handleFilter3Value = (e) => {
+    setFilter3Value(e.target.value);
+  };
+  const filterFun4 = (elementVal) => {
+    setFilter4Value(elementVal);
+  };
+  const dummyData = ["Choose location", "Choose Price", "Choose PropertyType"];
+  //for understanding purpose
+  const handleSearch = () => {
+    const newList = list.filter((element) => {
+      const arr = filter2Value.split(" ");
+      const price1 = parseInt(arr[0]?.substring(1));
+      const price2 = parseInt(arr[2]?.substring(1));
+      const location = element.address.split(",")[1].replace(" ", "");
+
+      if (
+        location === filter1Value ||
+        dummyData.includes(filter1Value) ||
+        !filter1Value
+      ) {
+        if (element && element.price >= price1 && element.price <= price2) {
+          if (
+            element.type === filter4Value ||
+            dummyData.includes(filter4Value) ||
+            !filter4Value
+          ) {
+            return true;
+          } else {
+            return false;
+          }
+        } else if (dummyData.includes(price1) || !price1) {
+          if (
+            filter4Value === element.type ||
+            dummyData.includes(filter4Value) ||
+            !filter4Value
+          )
+            return true;
+        } else {
+          return false;
+        }
+      } else {
+        return false;
+      }
+    });
+    console.log("newList", newList);
+    fun(newList);
+  };
+
+>>>>>>> 7e8f7f3 (updated filter logic)
   return (
     <div className="filterBox">
       <Filter name="location" data={data1} filterFun={filterFun1} />
@@ -111,10 +162,17 @@ const FilterBox = ({ list, fun }) => {
           type="date"
           id="checkIn"
           value={filter4Value}
+<<<<<<< HEAD
           onChange={handleFilter4Value}
         ></input>
       </div>
       <Filter name="PropertyType" data={data3} filterFun={filterFun3} />
+=======
+          onChange={handleFilter3Value}
+        ></input>
+      </div>
+      <Filter name="PropertyType" data={data3} filterFun={filterFun4} />
+>>>>>>> 7e8f7f3 (updated filter logic)
       <button className="btn" onClick={handleSearch}>
         Search
       </button>
