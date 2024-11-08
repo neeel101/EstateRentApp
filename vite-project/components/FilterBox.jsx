@@ -21,7 +21,6 @@ const FilterBox = ({ list, fun }) => {
   const filterFun2 = (elementVal) => {
     setFilter2Value(elementVal);
   };
-<<<<<<< HEAD
   const filterFun3 = (elementVal) => {
     setFilter3Value(elementVal);
   };
@@ -99,8 +98,6 @@ const FilterBox = ({ list, fun }) => {
   const isPriceInRange = (price, min, max) => {
     return (min === null || price >= min) && (max === null || price <= max);
   };
-
-=======
   const handleFilter3Value = (e) => {
     setFilter3Value(e.target.value);
   };
@@ -149,7 +146,6 @@ const FilterBox = ({ list, fun }) => {
     fun(newList);
   };
 
->>>>>>> 7e8f7f3 (updated filter logic)
   return (
     <div className="filterBox">
       <Filter name="location" data={data1} filterFun={filterFun1} />
@@ -162,17 +158,15 @@ const FilterBox = ({ list, fun }) => {
           type="date"
           id="checkIn"
           value={filter4Value}
-<<<<<<< HEAD
+
           onChange={handleFilter4Value}
         ></input>
       </div>
-      <Filter name="PropertyType" data={data3} filterFun={filterFun3} />
-=======
+      <Filter name="PropertyType" data={data3} filterFun={filterFun3}
           onChange={handleFilter3Value}
         ></input>
       </div>
       <Filter name="PropertyType" data={data3} filterFun={filterFun4} />
->>>>>>> 7e8f7f3 (updated filter logic)
       <button className="btn" onClick={handleSearch}>
         Search
       </button>
